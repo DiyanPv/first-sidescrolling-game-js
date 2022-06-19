@@ -6,6 +6,19 @@ startButton.addEventListener(`click`, (e) => {
 })
 //set movement speed
 let movementSpeed = 15;
+function movedown() {
+    spaceship.style.top = parseInt(spaceship.style.top) + movementSpeed + `px`;
+}
+function moveup() {
+    spaceship.style.top = parseInt(spaceship.style.top) - movementSpeed + `px`;
+}
+function moveleft() {
+
+    spaceship.style.left = parseInt(spaceship.style.left) - movementSpeed + `px`;
+}
+function moveright() {
+    spaceship.style.left = parseInt(spaceship.style.left) + movementSpeed + `px`;
+}
 
 //add event listener to window
 //initialise allowed movement keys
@@ -17,18 +30,16 @@ window.addEventListener(`load`, () => {
 window.addEventListener(`keydown`, (e) => {
     if (allowedKeys.includes(e.code)) {
         if (e.code === `KeyA`) {
-            console.log(spaceship.style.left);
-            spaceship.style.left = parseInt(spaceship.style.left) - movementSpeed + `px`;
+            moveleft()
         }
         if (e.code === `KeyD`) {
-            spaceship.style.left = parseInt(spaceship.style.left) + movementSpeed + `px`;
-            console.log(e.code);
+            moveright()
         }
         if (e.code === `KeyW`) {
-            spaceship.style.top = parseInt(spaceship.style.top) - movementSpeed + `px`;
+            moveup()
         }
         if (e.code === `KeyS`) {
-            spaceship.style.top = parseInt(spaceship.style.top) + movementSpeed + `px`;
+            movedown()
         }
     }
 })
